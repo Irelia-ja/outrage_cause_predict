@@ -30,6 +30,12 @@ We will perform a fairness analysis on the column **CUSTOMERS.AFFECTED**, and an
 	Alternative Hypothesis: The model is unfair. The f1 score of the large number of customers affected in an outage is significantly greater than the smaller one. 
 We will use the difference in f1 score as our test statistic.
 
-We perform 1000 permutations to create our test group, and we get a p-value of *0.0*. At a significance level of 1%, we reject our null hypothesis and conclude that the f1 score for a large number of customers affected in an outage is significantly greater than the low one. 
+We perform 1000 permutations to create our test group, and we get a p-value of **0.0**. At a significance level of 1%, we reject our null hypothesis and conclude that the f1 score for a large number of customers affected in an outage is significantly greater than the low one. 
 
+<iframe
+  src="plt/fairness.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
