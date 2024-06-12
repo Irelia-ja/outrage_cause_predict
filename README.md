@@ -21,6 +21,7 @@ We use GridSearchCV to help us determine the hyperparameter in the random forest
 - Criterion = Entropy
 - Max_depth = 182
 - Min_samples_split = 10
+
 Our final model has a f1 score of **0.67**, which is better than our basic model. Therefore, we conclude that the final model performs better than our basic model
 ### Fairness Analysis
 
