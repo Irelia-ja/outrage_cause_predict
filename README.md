@@ -10,9 +10,9 @@ We will fit our model by using random forest classification because it is the be
 ### Basic Model
 For our basic model, we will be using columns **CLIMATE.CATEGOR** (nominal), **TOTAL.PRICE** (quantitative), and **PC.REALGSP.REL** (quantitative). 
 
-We choose CLIMATE.CATEGORY because warm and cold climates may result in a more extreme climate that will cause an outage. TOTAL.PRICE and PC.REALGSP.REL together can help us determine the state's economy behind the outage - if TOTAL.PRICE is high but PC.REALGSP.REL is low, so there may be more chance to have a public appeal as the cause of the outage. 
+We choose **CLIMATE.CATEGORY** because warm and cold climates may result in a more extreme climate that will cause an outage. **TOTAL.PRICE** and **PC.REALGSP.REL** together can help us determine the state's economy behind the outage: if **TOTAL.PRICE** is high but **PC.REALGSP.REL** is low, there may be more chance to have a public appeal as the cause of the outage. 
 
-We will perform a one-hot encoder to the CLIMATE.CATEGORY column. Our basic model has a f1 score of **0.62**, which is kind of low. Therefore, we want to explode more into other data columns.  
+We will perform a one-hot encoder to the **CLIMATE.CATEGORY** column. Our basic model has a f1 score of **0.62**, which is kind of low. Therefore, we want to explode more into other data columns.  
 
 ### Final Model
 Our final model will contain new data columns: **MONTH**, **PI.UTIL.OFUSA**, and **a_tsalses**. **MONTH** (quantitative) gives us information about the time the outage happened: there could be some period of the month when one particular cause of the outage may have happened. For example, severe weather often occurs around 11-12 months in Minnesota. The column **a_tsalses** (quantitative) represents the average consumption of electricity per customer, which implies the electrical burden on the equipment. Higher **a_tsalses** may cause the utility equipment to deteriorate more quickly than the low one, and may help us in predicting the cause of the outage. Lastly, **PI.UTIL.OFUSA** (quantitative), in short, tells us about how the workers in the utility company are treated. We think that if workers are being treated nicely (larger **PI.UTIL.OFUSA**), they will be more enthusiastic about their jobs and prevent some causes of the outage - for instance, the equipment failure. 
