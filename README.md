@@ -23,7 +23,13 @@ We use GridSearchCV to help us determine the hyperparameter in the random forest
 - Min_samples_split = 10
 
 Our final model has a f1 score of **0.67**, which is better than our basic model. Therefore, we conclude that the final model performs better than our basic model
-### Fairness Analysis
 
+### Fairness Analysis
+We will perform a fairness analysis on the column **CUSTOMERS.AFFECTED**, and analyze if our model’s performance depends on the number of customers affected in an outage. We binarize the columns by setting numbers greater than the median of the columns equal to 1 and others to 0. 
+	Null Hypothesis: The model is fair. The f1 score between large and small number of customers affected in an outage is roughly the same. 
+	Alternative Hypothesis: The model is unfair. The f1 score of the large number of customers affected in an outage is significantly greater than the smaller one. 
+We will use the difference in f1 score as our test statistic.
+
+We perform 1000 permutations to create our test group, and we get a p-value of *0.0*. At a significance level of 1%, we reject our null hypothesis and conclude that the f1 score for a large number of customers affected in an outage is significantly greater than the low one. 
 
 
