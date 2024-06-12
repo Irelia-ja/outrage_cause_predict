@@ -1,4 +1,20 @@
 # Prediction of the Cause of Major Outage
+## Hypothesis Testing
+We will be performing a permutation test on the relationship between **CAUSE.CATEGORY** and **TOTAL.SALES**. Specifically, we will examine the difference between the mean total sales of two variables in the **CAUSE.CATEGORY** - severe weather and intentional attack. 
+	- Null Hypothesis: The mean total sales between severe weather and intentional attack is roughly the same.
+	- Alternative Hypothesis: The mean total sales of severe weather is greater than the one of intentional attack. 
+
+We will use the difference of mean as our test statistics because we want to know which category has a higher mean total sales. 
+
+We generate our test group with 1000 trials, and we get a p value of 0.0. Therefore, at a significance level of 1%, we reject the null hypothesis.
+
+<iframe
+  src="plt/hypo_test.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 
 ## Framing a Prediction Problem
 In this project, we will make a model to predict the category of an outage. The predictive model will help the utility company to save resources and time on fixing outages by determining the causes of them. The model will be a multiclass classification that predicts the column **CAUSE.CATEGORY**. 
