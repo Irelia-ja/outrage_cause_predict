@@ -160,9 +160,9 @@ To test missingness dependency, I will focus on the distribution of **CAUSE.CATE
 
 After the permutation test, we find that the observed TVD corresponds to a **p-value of 0.0**. Its distribution is shown in the figure. Since the p-value is less than 0.01, we reject the null hypothesis, that is, the distribution of Cause Category is significantly different when Cause Category detail is missing vs not, indicating that the missingness of Cause Category detail is dependent on Cause Category.
 
-#### OUTAGE.DURATION ####
-- Null Hypothesis: The distribution of outage.duration is the same when Cause Category detail is missing vs not missing.
-- Alternate Hypothesis: The distribution of outage.duration is different when Cause Category detail is missing vs not missing.
+#### OUTAGE.START.TIME ####
+- Null Hypothesis: The distribution of OUTAGE.START.TIME is the same when Cause Category detail is missing vs not missing.
+- Alternate Hypothesis: The distribution of OUTAGE.START.TIME is different when Cause Category detail is missing vs not missing.
 
 <iframe
   src="plt/fig8.html"
@@ -171,7 +171,7 @@ After the permutation test, we find that the observed TVD corresponds to a **p-v
   frameborder="0"
 ></iframe>
 
-After the permutation test, we find that the observed TVD corresponds to a **p-value of 0.896**. Its distribution is shown in the figure. Since the p-value is greater than 0.1, We cannot reject the null hypothesis, that is, the distribution of outage.duration is the same when Cause Category detail is missing vs not, indicating that the missingness of  Cause Category detail is not dependent on outage.duration.
+After the permutation test, we find that the observed TVD corresponds to a **p-value of 0.331**. Its distribution is shown in the figure. Since the p-value is greater than 0.1, We cannot reject the null hypothesis, that is, the distribution of OUTAGE.START.TIME is the same when Cause Category detail is missing vs not, indicating that the missingness of  Cause Category detail is not dependent on OUTAGE.START.TIME.
 
 ## Hypothesis Testing
 We will be performing a permutation test on the relationship between **CAUSE.CATEGORY** and **TOTAL.SALES**. Specifically, we will examine the difference between the mean total sales of two variables in the **CAUSE.CATEGORY** - severe weather and intentional attack. 
