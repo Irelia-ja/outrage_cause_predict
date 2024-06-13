@@ -1,4 +1,10 @@
 # Prediction of the Cause of Major Outage
+
+### Data Frame
+
+
+
+
 ## Hypothesis Testing
 We will be performing a permutation test on the relationship between **CAUSE.CATEGORY** and **TOTAL.SALES**. Specifically, we will examine the difference between the mean total sales of two variables in the **CAUSE.CATEGORY** - severe weather and intentional attack. 
 	- Null Hypothesis: The mean total sales between severe weather and intentional attack is roughly the same.
@@ -10,7 +16,7 @@ We generate our test group with 1000 trials, and we get a p value of 0.0. Theref
 
 <iframe
   src="plt/hypo_test.html"
-  width="600"
+  width="800"
   height="600"
   frameborder="0"
 ></iframe>
@@ -50,7 +56,7 @@ We perform 1000 permutations to create our test group, and we get a p-value of *
 
 <iframe
   src="plt/fairness.html"
-  width="600"
+  width="700"
   height="600"
   frameborder="0"
 ></iframe>
