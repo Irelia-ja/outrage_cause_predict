@@ -10,7 +10,7 @@ We generate our test group with 1000 trials, and we get a p value of 0.0. Theref
 
 <iframe
   src="plt/hypo_test.html"
-  width="800"
+  width="600"
   height="600"
   frameborder="0"
 ></iframe>
@@ -50,7 +50,7 @@ We perform 1000 permutations to create our test group, and we get a p-value of *
 
 <iframe
   src="plt/fairness.html"
-  width="800"
+  width="600"
   height="600"
   frameborder="0"
 ></iframe>
