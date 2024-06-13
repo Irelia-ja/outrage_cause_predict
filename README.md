@@ -2,7 +2,27 @@
 
 ### Data Frame
 
-
+| Columns                 |   Description |
+|:------------------------|--------------:|
+| CLIMATE.CATEGORY        |              |
+| TOTAL.PRICE             |             0 |
+| PC.REALGSP.REL          |             0 |
+| PI.UTIL.OFUSA           |             0 |
+| MONTH                   |             0 |
+| TOTAL.CUSTOMERS         |             0 |
+| TOTAL.SALES             |             0 |
+| CAUSE.CATEGORY          |             0 |
+| CAUSE.CATEGORY.DETAIL   |             0 |
+| OUTAGE.DURATION         |             0 |
+| CUSTOMERS.AFFECTED      |             0 |
+| U.S._STATE              |             0 |
+| CLIMATE.REGION          |             0 |
+| POPULATION              |             0 |
+| PC.REALGSP.STATE        |             0 |
+| OUTAGE.START.DATE       |             0 |
+| OUTAGE.START.TIME       |             0 |
+| OUTAGE.RESTORATION.DATE |             0 |
+| OUTAGE.RESTORATION.TIME |             0 |
 
 
 ## Hypothesis Testing
