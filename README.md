@@ -38,13 +38,13 @@ The dataset contains a total of 1,534 outage data from 2000 to 2016 and 56 colum
 
 ## Data Cleaning and Exploratory Data Analysis ##
 ### Data Cleaning ###
-1. In this project, I extract the columns that we care about, which are **"CLIMATE.CATEGORY", "TOTAL.PRICE", "PC.REALGSP.REL", "PI.UTIL.OFUSA", "MONTH", "TOTAL.CUSTOMERS", "TOTAL.SALES", "CAUSE.CATEGORY", "CAUSE.CATEGORY.DETAIL", "OUTAGE.DURATION", "CUSTOMERS.AFFECTED", "U.S._STATE", "CLIMATE.REGION", "POPULATION", "PC.REALGSP.STATE", "OUTAGE.START.DATE", "OUTAGE.START.TIME", "OUTAGE.RESTORATION.DATE", "OUTAGE.RESTORATION.TIME"**.
+1. In this project, we extract the columns that we care about, which are **"CLIMATE.CATEGORY", "TOTAL.PRICE", "PC.REALGSP.REL", "PI.UTIL.OFUSA", "MONTH", "TOTAL.CUSTOMERS", "TOTAL.SALES", "CAUSE.CATEGORY", "CAUSE.CATEGORY.DETAIL", "OUTAGE.DURATION", "CUSTOMERS.AFFECTED", "U.S._STATE", "CLIMATE.REGION", "POPULATION", "PC.REALGSP.STATE", "OUTAGE.START.DATE", "OUTAGE.START.TIME", "OUTAGE.RESTORATION.DATE", "OUTAGE.RESTORATION.TIME"**.
 
-2. I combine the **OUTAGE.START.DATE** and **OUTAGE.START.TIME** columns into one Timestamp object in an **OUTAGE.START** column. Also, I combine the **OUTAGE.RESTORATION.DATE** and **OUTAGE.RESTORATION.TIME** into **OUTAGE.RESTORATION**. At last, I dropped the old columns.
+2. We combine the **OUTAGE.START.DATE** and **OUTAGE.START.TIME** columns into one Timestamp object in an **OUTAGE.START** column. Also, we combine the **OUTAGE.RESTORATION.DATE** and **OUTAGE.RESTORATION.TIME** into **OUTAGE.RESTORATION**. At last, we dropped the old columns.
 
-3. I divided **TOTAL.SALES** by **TOTAL.CUSTOMERS** into one column **a_tsalses**, which is the per capita consumption of electricity.
+3. We divided **TOTAL.SALES** by **TOTAL.CUSTOMERS** into one column **a_tsalses**, which is the per capita consumption of electricity.
 
-4. The **OUTAGE.DURATION** and **CUSTOMERS.AFFECTED** for values of 0 have no practical significance. Thus, I replace 0 values in these columns with np.nan.
+4. The **OUTAGE.DURATION** and **CUSTOMERS.AFFECTED** for values of 0 have no practical significance. Thus, we replace 0 values in these columns with np.nan.
 
 | CAUSE.CATEGORY | CLIMATE.CATEGORY | a_tsalses | OUTAGE.START | OUTAGE.RESTORATION | 
 |:-------------------|:-------------------|------------:|:--------------------|:---------------------| 
@@ -63,7 +63,7 @@ The dataset contains a total of 1,534 outage data from 2000 to 2016 and 56 colum
   frameborder="0"
 ></iframe>
 
-The figure1 shows the relationship between the average power outage duration and the month. The average power outage duration from April to August is short, and the average power outage duration in September is the longest.
+The Figure 1 shows the relationship between the average power outage duration and the month. The average power outage duration from April to August is short, and the average power outage duration in September is the longest.
 
 <iframe
   src="assets/fig2.html"
@@ -72,7 +72,7 @@ The figure1 shows the relationship between the average power outage duration and
   frameborder="0"
 ></iframe>
 
-The figure2 shows the number of power outages in different months. There are more power outages from June to August, and fewer power outages from September to December. We find that this is the opposite of the results shown above.
+The Figure 2 shows the number of power outages in different months. There are more power outages from June to August, and fewer power outages from September to December. We find that this is the opposite of the results shown above.
 
 <iframe
   src="assets/fig3.html"
@@ -81,7 +81,7 @@ The figure2 shows the number of power outages in different months. There are mor
   frameborder="0"
 ></iframe>
 
-The figure 3 shows the number of power outages in different states. It's clear that California had the most power outages, more than 200. It was followed by Texas, Washington, Michigan and New York. We can find that the larger the city, the more power outages.
+The Figure 3 shows the number of power outages in different states. It's clear that California had the most power outages, more than 200. It was followed by Texas, Washington, Michigan and New York. We can find that the larger the city, the more power outages.
 
 <iframe
   src="assets/fig4.html"
@@ -90,7 +90,7 @@ The figure 3 shows the number of power outages in different states. It's clear t
   frameborder="0"
 ></iframe>
 
-The figure 4 shows the number of power outages corresponding to different climate regions. The northeast had the most power outages and the northwest the least.
+The Figure 4 shows the number of power outages corresponding to different climate regions. The northeast had the most power outages and the northwest the least.
 
 ### Bivariate Analysis ###
 We need to look not only at the relationship between power outages and climate data, but also at the relationship between power outages and socio-economic data.
@@ -102,7 +102,7 @@ We need to look not only at the relationship between power outages and climate d
   frameborder="0"
 ></iframe>
 
-The figure 5 shows the length of the outage in relation to the state population. We found that there was no significant difference in the duration of power outages for different populations.
+The Figure 5 shows the length of the outage in relation to the state population. We found that there was no significant difference in the duration of power outages for different populations.
 
 <iframe
   src="assets/fig6.html"
@@ -111,7 +111,7 @@ The figure 5 shows the length of the outage in relation to the state population.
   frameborder="0"
 ></iframe>
 
-The figure 6 shows the relationship between outage duration and real gross state product per capita. We found that there was no significant difference in outage duration for different GSP.
+The Figure 6 shows the relationship between outage duration and real gross state product per capita. We found that there was no significant difference in outage duration for different GSP.
 
 This can simply show that whether the power outage occurs has little to do with the socio-economic situation.
 
@@ -147,8 +147,8 @@ In order to convert an NMAR miss to a MAR,  we need to collect additional data, 
 To test missingness dependency, I will focus on the distribution of **CAUSE.CATEGORY.DETAIL**. I will test this against the columns **CAUSE.CATEGORY** and **OUTAGE.DURATION**.
 
 #### CAUSE.CATEGORY ####
-                    Null Hypothesis: The distribution of Cause Category is the same when Cause Category detail is missing vs not missing.
-                    Alternate Hypothesis: The distribution of Cause Category is different when Cause Category detail is missing vs not missing.
+- Null Hypothesis: The distribution of Cause Category is the same when Cause Category detail is missing vs not missing.
+- Alternate Hypothesis: The distribution of Cause Category is different when Cause Category detail is missing vs not missing.
 
 <iframe
   src="assets/fig7.html"
@@ -160,8 +160,8 @@ To test missingness dependency, I will focus on the distribution of **CAUSE.CATE
 After the permutation test, we find that the observed TVD corresponds to a **p-value of 0.0**. Its distribution is shown in the figure. Since the p-value is less than 0.01, we reject the null hypothesis, that is, the distribution of Cause Category is significantly different when Cause Category detail is missing vs not, indicating that the missingness of Cause Category detail is dependent on Cause Category.
 
 #### OUTAGE.DURATION ####
-                    Null Hypothesis: The distribution of outage.duration is the same when Cause Category detail is missing vs not missing.
-                    Alternate Hypothesis: The distribution of outage.duration is different when Cause Category detail is missing vs not missing.
+- Null Hypothesis: The distribution of outage.duration is the same when Cause Category detail is missing vs not missing.
+- Alternate Hypothesis: The distribution of outage.duration is different when Cause Category detail is missing vs not missing.
 
 <iframe
   src="assets/fig8.html"
