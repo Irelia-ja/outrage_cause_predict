@@ -57,7 +57,7 @@ The dataset contains a total of 1,534 outage data from 2000 to 2016 and 56 colum
 ### Univariate Analysis ###
 
 <iframe
-  src="assets/fig1.html"
+  src="plt/fig1.html"
   width="700"
   height="600"
   frameborder="0"
@@ -66,7 +66,7 @@ The dataset contains a total of 1,534 outage data from 2000 to 2016 and 56 colum
 The Figure 1 shows the relationship between the average power outage duration and the month. The average power outage duration from April to August is short, and the average power outage duration in September is the longest.
 
 <iframe
-  src="assets/fig2.html"
+  src="plt/fig2.html"
   width="700"
   height="600"
   frameborder="0"
@@ -75,7 +75,7 @@ The Figure 1 shows the relationship between the average power outage duration an
 The Figure 2 shows the number of power outages in different months. There are more power outages from June to August, and fewer power outages from September to December. We find that this is the opposite of the results shown above.
 
 <iframe
-  src="assets/fig3.html"
+  src="plt/fig3.html"
   width="700"
   height="600"
   frameborder="0"
@@ -84,7 +84,7 @@ The Figure 2 shows the number of power outages in different months. There are mo
 The Figure 3 shows the number of power outages in different states. It's clear that California had the most power outages, more than 200. It was followed by Texas, Washington, Michigan and New York. We can find that the larger the city, the more power outages.
 
 <iframe
-  src="assets/fig4.html"
+  src="plt/fig4.html"
   width="700"
   height="600"
   frameborder="0"
@@ -96,7 +96,7 @@ The Figure 4 shows the number of power outages corresponding to different climat
 We need to look not only at the relationship between power outages and climate data, but also at the relationship between power outages and socio-economic data.
 
 <iframe
-  src="assets/fig5.html"
+  src="plt/fig5.html"
   width="700"
   height="600"
   frameborder="0"
@@ -105,7 +105,7 @@ We need to look not only at the relationship between power outages and climate d
 The Figure 5 shows the length of the outage in relation to the state population. We found that there was no significant difference in the duration of power outages for different populations.
 
 <iframe
-  src="assets/fig6.html"
+  src="plt/fig6.html"
   width="700"
   height="600"
   frameborder="0"
@@ -151,7 +151,7 @@ To test missingness dependency, I will focus on the distribution of **CAUSE.CATE
 - Alternate Hypothesis: The distribution of Cause Category is different when Cause Category detail is missing vs not missing.
 
 <iframe
-  src="assets/fig7.html"
+  src="plt/fig7.html"
   width="700"
   height="600"
   frameborder="0"
@@ -164,7 +164,7 @@ After the permutation test, we find that the observed TVD corresponds to a **p-v
 - Alternate Hypothesis: The distribution of outage.duration is different when Cause Category detail is missing vs not missing.
 
 <iframe
-  src="assets/fig8.html"
+  src="plt/fig8.html"
   width="700"
   height="600"
   frameborder="0"
