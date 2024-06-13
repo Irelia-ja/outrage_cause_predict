@@ -4,7 +4,7 @@
 
 | Columns                 |   Description |
 |:------------------------|--------------:|
-| CLIMATE.CATEGORY        |              |
+| CLIMATE.CATEGORY        |             0 |
 | TOTAL.PRICE             |             0 |
 | PC.REALGSP.REL          |             0 |
 | PI.UTIL.OFUSA           |             0 |
@@ -27,8 +27,8 @@
 
 ## Hypothesis Testing
 We will be performing a permutation test on the relationship between **CAUSE.CATEGORY** and **TOTAL.SALES**. Specifically, we will examine the difference between the mean total sales of two variables in the **CAUSE.CATEGORY** - severe weather and intentional attack. 
-	- Null Hypothesis: The mean total sales between severe weather and intentional attack is roughly the same.
-	- Alternative Hypothesis: The mean total sales of severe weather is greater than the one of intentional attack. 
+- Null Hypothesis: The mean total sales between severe weather and intentional attack is roughly the same.
+- Alternative Hypothesis: The mean total sales of severe weather is greater than the one of intentional attack. 
 
 We will use the difference of mean as our test statistics because we want to know which category has a higher mean total sales. 
 
