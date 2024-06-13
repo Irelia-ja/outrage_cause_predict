@@ -7,7 +7,7 @@ Conducted by Shangqi Liu and Zihan Liu
 In recent years, with the rapid socio-economic development and accelerated urbanization, the demand for electricity has been growing. However, frequent and irregular power outages not only cause great inconvenience to residents' living and production activities, but also have a significant socio-economic impact. The causes of power outages are varied and may include natural disasters (e.g., storms, earthquakes), equipment failures, human factors, and overloading of the power system. In order to better understand and respond to these outages, the study of past outage data and causes of outages is particularly important.
 
 ### Project Significance ###
-The aim of this project is **to explore the main causes of outage and find a reasonable way to predict them through in-depth analysis of outage data from various states in the US.** At the micro level, this will help electric utilities improve their emergency response to outages. By optimizing the maintenance and management of the power system, this improves the reliability of the power system. At the macro level, this can provide a scientific basis for policy makers to effectively reduce the frequency and duration of blackout events caused by human factors. Ultimately, this will help promote the construction of smart grids and save socio-economic costs.
+The aim of this project is **to explore the main causes of outage and find a reasonable way to predict them through in-depth analysis of outage data from various states in the U.S..** At the micro level, this will help electric utilities improve their emergency response to outages. By optimizing the maintenance and management of the power system, this improves the reliability of the power system. At the macro level, this can provide a scientific basis for policy makers to effectively reduce the frequency and duration of blackout events caused by human factors. Ultimately, this will help promote the construction of smart grids and save socio-economic costs.
 
 ### Introduction to the dataset ###
 In this project, we use a dataset from the Laboratory for Advancing Sustainable Critical Infrastructure at Purdue University (https://engineering.purdue.edu/LASCI/research- data/outages) This dataset includes the major outages witnessed by different states in the continental U.S. Besides major outages, this data contains information on geographical location of the outages, regional climatic information, land-use characteristics, electricity consumption patterns and economic characteristics of the states affected by the outages. 
@@ -35,6 +35,7 @@ The dataset contains a total of 1,534 outage data from 2000 to 2016 and 56 colum
 | OUTAGE.START.TIME       |             Time of day when the outage event started.|
 | OUTAGE.RESTORATION.DATE |             Date when power was fully restored to all affected customers.|
 | OUTAGE.RESTORATION.TIME |             Time of day when power was fully restored.|
+
 
 ## Data Cleaning and Exploratory Data Analysis ##
 ### Data Cleaning ###
@@ -201,17 +202,17 @@ For our basic model, we will be using columns **CLIMATE.CATEGOR** (nominal), **T
 
 We choose **CLIMATE.CATEGORY** because warm and cold climates may result in a more extreme climate that will cause an outage. **TOTAL.PRICE** and **PC.REALGSP.REL** together can help us determine the state's economy behind the outage: if **TOTAL.PRICE** is high but **PC.REALGSP.REL** is low, there may be more chance to have a public appeal as the cause of the outage. 
 
-We will perform a one-hot encoder to the **CLIMATE.CATEGORY** column. Our basic model has a f1 score of **0.58**, which is kind of low. Therefore, we want to explode more into other data columns.  
+We will perform a one-hot encoder to the **CLIMATE.CATEGORY** column. Our basic model has a f1 score of **0.57**, which is kind of low. Therefore, we want to explode more into other data columns.  
 
 ### Final Model
 Our final model will contain new data columns: **MONTH**, **PI.UTIL.OFUSA**, and **a_tsalses**. **MONTH** (quantitative) gives us information about the time the outage happened: there could be some period of the month when one particular cause of the outage may have happened. For example, severe weather often occurs around 11-12 months in Minnesota. The column **a_tsalses** (quantitative) represents the average consumption of electricity per customer, which implies the electrical burden on the equipment. Higher **a_tsalses** may cause the utility equipment to deteriorate more quickly than the low one, and may help us in predicting the cause of the outage. Lastly, **PI.UTIL.OFUSA** (quantitative), in short, tells us about how the workers in the utility company are treated. We think that if workers are being treated nicely (larger **PI.UTIL.OFUSA**), they will be more enthusiastic about their jobs and prevent some causes of the outage - for instance, the equipment failure. 
 In addition, we will transform our two old data columns - **CLIMATE.CATEGORY** and **TOTAL.PRICE** - in our final model. Instead of using a one hot encoder, we transform the *warm* and *cold* value in the **CLIMATE.CATEGORY** to 1 and normal to 0. We think that warm and cold climates will result in the same severe weather, so we should treat them equally. Then, we apply standard scaler transformations to the column **TOTAL.PRICE**. 
 We use GridSearchCV to help us determine the hyperparameter in the random forest classifier. The hyperparameters are:
-- Criterion = gini
-- Max_depth = 202
+- Criterion = Entropy
+- Max_depth = 102
 - Min_samples_split = 10
 
-Our final model has a f1 score of **0.61**, which is better than our basic model. Therefore, we conclude that the final model performs better than our basic model
+Our final model has a f1 score of **0.62**, which is better than our basic model. Therefore, we conclude that the final model performs better than our basic model
 
 ### Fairness Analysis
 We will perform a fairness analysis on the column **CUSTOMERS.AFFECTED**, and analyze if our model’s performance depends on the number of customers affected in an outage. We binarize the columns by setting numbers greater than the median of the columns equal to 1 and others to 0. 
